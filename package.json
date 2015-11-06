@@ -1,0 +1,24 @@
+{
+  "name": "bundle-rocket-server",
+  "version": "1.0.0",
+  "description": "bundle rocket server to update your react native app instantly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bundle-rocket/bundle-rocket-server.git"
+  },
+  "keywords": [
+    "reactnative",
+    "bundleserver",
+    "update-instantly"
+  ],
+  "author": "ludafa@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bundle-rocket/bundle-rocket-server/issues"
+  },
+  "homepage": "https://github.com/bundle-rocket/bundle-rocket-server#readme"
+}
