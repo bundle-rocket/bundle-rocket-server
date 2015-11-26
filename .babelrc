@@ -1,0 +1,8 @@
+{
+    "plugins": [
+        "syntax-object-rest-spread",
+        "transform-object-rest-spread",
+        "transform-es2015-destructuring",
+        "transform-es2015-block-scoping"
+    ]
+}

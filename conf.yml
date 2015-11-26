@@ -1,0 +1,14 @@
+---
+    server:
+        port: 8080
+        feRoot: 'http://localhost:8848'
+
+    database:
+
+        dialect: mysql
+
+        mysql:
+            user: root
+            password: iI2sfyPuf74r70D9S9715Vvs
+            port: 3306
+            localhost: localhost
