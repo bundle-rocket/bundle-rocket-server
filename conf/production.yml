@@ -5,10 +5,20 @@
 
     database:
 
-        dialect: mysql
+        dialect: sqlite
 
-        mysql:
-            user: root
-            password: iI2sfyPuf74r70D9S9715Vvs
-            port: 3306
-            localhost: localhost
+        # mysql:
+        #     database: bundle_rocket
+        #     username: root
+        #     password: iI2sfyPuf74r70D9S9715Vvs
+        #     port: 3306
+        #     localhost: localhost
+
+        sqlite:
+            database: bundle_rocket
+            storage: database/sqlite.db
+
+    jwt:
+        secret: bundle-rocket
+        key: jwt
+        duration: 3600

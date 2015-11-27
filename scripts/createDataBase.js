@@ -5,8 +5,6 @@
 
 require('babel-core/register');
 
-debugger;
-
 require('../lib/common/model/User.js');
 require('../lib/common/model/App.js');
 require('../lib/common/model/Bundle.js');
@@ -15,7 +13,8 @@ const sequelize = require('../lib/common/model/db.js');
 
 sequelize
     .sync({
-        logging: console.log
+        logging: console.log,
+        force: true
     })
     .then(() => {
         console.log(arguments)
