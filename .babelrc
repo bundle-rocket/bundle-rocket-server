@@ -1,8 +1,13 @@
 {
+    "compact": false,
+    "ast": false,
+    "presets": [
+        "react"
+    ],
     "plugins": [
-        "syntax-object-rest-spread",
         "transform-object-rest-spread",
         "transform-es2015-destructuring",
+        "transform-es2015-block-scoped-functions",
         "transform-es2015-block-scoping"
     ]
 }

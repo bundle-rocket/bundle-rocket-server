@@ -5,7 +5,6 @@
     "error_file": "logs/node-app.stderr.log",
     "out_file": "logs/node-app.stdout.log",
     "pid_file": "pids/node-app.pid",
-    "node_args": "--harmony",
     "instances": 1,
     "max_restarts": 2,
     "max_memory_restart": "1000M",
