@@ -1,0 +1,265 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# bundle-rocket-server
+
+bundle-rocket 服务器端 api 文档
+
+## Group 用户
+
+用户相关的 api
+
+## 注册 [/user/register]
+
+### 注册 [POST]
+
+
+> 注册接口需要对 `password` 做 `sha256` hash 处理
+
+
++ Request (application/json)
+
+        {
+            email: 'test@test.com',
+            password: '123',
+            name: 'ludafa'
+        }
+
++ Response 200 (application/json)
+
+        {
+            id: 'aaaa'
+        }
+        
+        
+## 登录 [/user/login]
+
+### 登录 [POST]
+
+> password 字段需要先使用 sha256 进行 hash 处理
+
++ Request (application/json)
+
+        {
+            email: 'test@test.com',
+            password: '123'
+        }
+
++ Response 200 (application/json)
+
+        {
+            access_token: ${JWT_TOKEN}
+        }
+        
+## 登出 [/user/logout]
+
+### 登出 [POST]
+
++ Request (application/json)
+
+        {
+            accessKey: 'xxxx'
+        }
+
++ Response 200 (application/json)
+
+        {}
+        
+## 用户 [/user]
+
+### 详细信息 [GET]
+
++ Request (application/json)
+ 
+    + Headers
+        
+            Authorization: Bearer ${JWT_TOKEN}
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                id: 'xxx',
+                email: 'ludafa@outlook.com',
+                name: 'ludafa'
+            }
+ 
+
+## Group 应用
+
+应用相关的 api
+
+## 应用 [/applications?pageNum={pageNum}&pageSize={pageSize}]
+
+### 列举所有的应用 [GET]
+
++ Request (appliction/json)
+
+    + Headers
+    
+            Authorization: Bearer ${JWT_TOKEN}
+            Accept: application/json
+        
+
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+                total: 100,
+                pageSize: 20,
+                pageNum: 1,
+                applications: [
+                    {
+                        name: 'test1',
+                        accessKey: 'xxxxx',
+                        version: '1.0.0',
+                        versions: ['0.1.0', '1.0.0'],
+                        appVersion: '1.0.0'
+                    },
+                    {
+                        name: 'test2',
+                        accessKey: 'xxxxx',
+                        version: '1.0.0',
+                        versions: ['0.1.0', '1.0.0'],
+                        appVersion: '1.0.0'
+                    }
+                ]
+            }
+            
+            
+# 应用 [/applications]
+
+### 新增 [POST]
+
+
++ Request (application/json)
+ 
+
+    + Headers
+        
+            Authorization: Bearer ${JWT_TOKEN}
+            Accept: application/json
+            
+    + Body
+
+            {
+                name: 'test1'
+            }
+    
++ Response 200 (application/json)
+
+        {
+            accessKey: 'xxxxx',
+            version: '1.0.0',
+            versions: ['0.1.0', '1.0.0'],
+            appVersion: '1.0.0'
+        }
+        
+
+
+## 应用 [/applications/{appId}]
+
+### 详情 [GET]
+
++ Parameters    
+    
+    + appId (string) - 应用Id
+
++ Request (application/json) 
+
+
+    + Headers
+    
+            Authorization: Bearer ${JWT_TOKEN}
+
+    
++ Response 200 (application/json)
+        
+        {
+            appId: 'app-id',
+            name: 'my-app',
+            createTime: '2015-01-01',
+            versions: ['1.0.0', '1.0.1', '1.1.0', '2.0.0'],
+            version: '2.0.0'
+        }
+
+## Group Bundle
+
+## Bundle [/applications/{appId}/bundles?pageNum={pageNum}&pageSize={pageSize}]
+
+### 列表 [GET]
+
++ Parameters
+
+    + appId (string) - 应用id
+    + pageNum (number) - 页码
+    + pageSize (number) - 每页条数
+    
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer ${JWT_TOKEN}
+            Accept: application/json
+            
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                pageNum: 1,
+                pageSize: 20,
+                bundles: [
+                    {
+                        id: 'xxx',
+                        version: '0.1.1',
+                        appVersion: '1.0.0',
+                        location: 'http://yourdomain.com/bundle/0.1.1'
+                    }
+                ]
+            }
+            
+            
+## Bundle [/applications/{appId}/bundles]
+
+### 新增 [POST]
+
++ Parameters
+
+    + appId (string) - 应用id
+
++ Request (application/json)
+ 
+    + Headers
+    
+            Authorization: Bearer ${JWT_TOKEN}
+            Accept: application/json
+
+
+    + Body
+    
+            {
+                version: '1.0.2',
+                bundle: 'jdfklajfdlf',
+                hash: 'aksdlfjkldfs'
+            }
+            
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                id: 'xxx',
+                version: '0.1.1',
+                appVersion: '1.0.0',
+                location: 'http://yourdomain.com/bundle/0.1.1'
+            }
+
+
+ 
+
+
+
