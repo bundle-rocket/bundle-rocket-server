@@ -3,3 +3,5 @@ pids
 logs
 *.log
 database/sqlite.db
+uploads
+bundles

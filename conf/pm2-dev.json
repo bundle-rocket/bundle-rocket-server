@@ -13,6 +13,8 @@
     "ignore_watch": [
         "public",
         "pids",
-        "logs"
+        "logs",
+        "uploads",
+        "bundles"
     ]
 }
