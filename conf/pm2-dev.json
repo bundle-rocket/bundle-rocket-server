@@ -15,6 +15,7 @@
         "pids",
         "logs",
         "uploads",
-        "bundles"
+        "bundles",
+        "test"
     ]
 }
