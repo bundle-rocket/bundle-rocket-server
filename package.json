@@ -52,5 +52,13 @@
     "statuses": "^1.2.1",
     "swig": "^1.4.2",
     "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
